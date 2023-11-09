@@ -1,7 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminModule } from './admin/admin.module';
+import { UserModule } from './user/user.module';
+import { LoginComponent } from './auth/login/login.component';
 
-const routes: Routes = [];
+
+const routes: Routes = [
+  { path: '', redirectTo: 'user', pathMatch: 'full' },
+  {
+    path: 'admin',
+    loadChildren: () => AdminModule
+  },
+  {
+    path: 'user',
+    loadChildren: () => UserModule
+  },
+  {
+    path: 'login',
+    component:LoginComponent,
+  },
+  // Các route khác cho cả dự án
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
