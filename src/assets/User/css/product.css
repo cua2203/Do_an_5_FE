@@ -1,0 +1,51 @@
+.product{
+    position: relative;
+
+}
+.product>div{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    font-size: 12px;
+    padding: 5px;
+}
+.product_image{
+    width: 80%;
+    height: 50%;
+    margin: 15px 15px;
+
+}
+.product_price{
+    display: flex;
+    justify-content: space-evenly;
+}
+.product_price_new{
+    font-size: 18px ;
+    color: red;
+    font-weight:700;
+}
+.product_price_old{
+    font-size: 18px ;
+    font-weight: 500;
+    color: #aaa;
+
+}
+.product_discount{
+    position: absolute;
+    top:20px;
+    left:35px;
+    width: 40px !important;
+    height: 40px !important;
+    background-color: red;
+    color: white;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center
+
+}
+
+

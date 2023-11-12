@@ -4,18 +4,22 @@ import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { LayoutComponent } from './components/layout/layout.component';
+import { CategoryComponent } from './components/category/category.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    LayoutComponent
+    LayoutComponent,
+    CategoryComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class AdminModule { }
