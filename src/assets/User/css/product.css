@@ -2,7 +2,7 @@
     position: relative;
 
 }
-.product>div{
+.product >div{
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -10,25 +10,33 @@
     height: 100%;
     margin: auto;
     font-size: 12px;
+    font-weight: 500;
     padding: 5px;
 }
 .product_image{
-    width: 80%;
+    width: 90%;
     height: 50%;
     margin: 15px 15px;
+    transition: transform 0.4s ease-in-out;
 
 }
+.product_image:hover{
+    transform: scale(1.1, 1.1);
+    
+
+}
+
 .product_price{
     display: flex;
     justify-content: space-evenly;
 }
 .product_price_new{
-    font-size: 18px ;
+    font-size: 16px ;
     color: red;
     font-weight:700;
 }
 .product_price_old{
-    font-size: 18px ;
+    font-size: 16px ;
     font-weight: 500;
     color: #aaa;
 

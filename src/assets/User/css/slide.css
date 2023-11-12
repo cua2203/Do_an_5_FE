@@ -3,12 +3,12 @@
     position: relative;
     height: 100%;
     width: 100%;
+    align-items: center;
 }
 
 .slideshow_left {
     height: 385px;
-    width: 60%;
-
+    width: 68%;
 }
 
 .slideshow_right {
@@ -25,11 +25,11 @@
 }
 
 .slideshow_right_top {
-    padding: 0 0 4px 4px;
+    margin: 0 0 4px 4px;
 }
 
 .slideshow_right_bot {
-    padding: 0 0 0 4px;
+    margin: 0 0 0 4px;
 }
 
 /* Hide the images by default */

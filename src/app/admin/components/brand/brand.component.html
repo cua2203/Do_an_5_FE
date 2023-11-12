@@ -1,0 +1,64 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">{{ title }}</h1>
+      </div>
+      <!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+         
+          <li class="breadcrumb-item active">{{ title }}</li>
+        </ol>
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9"></div>
+      <div class="col-sm-3 float-sm-right">
+        <button class="float-sm-right btn btn-primary">
+          <a style="text-decoration: none;color: white;" href="/brand/add">Thêm mới</a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table" style="width: 100%; margin: auto">
+    <thead>
+      <tr>
+        <th style="width: 10%; text-align: center">STT</th>
+        <th style="width: 40%; text-align: center">Name</th>
+        <th style="width: 30%; text-align: center">Image</th>
+        <th style="width: 20%; text-align: center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of brand; let index = index">
+        <td scope="row" style="text-align: center">{{ index + 1 }}</td>
+        <td style="text-align: center">{{ item.brand_name }}</td>
+        <td style="text-align: center">
+          <img
+            src="assets/images/Category/{{ item.image }}"
+            style="width: 120px"
+          />
+        </td>
+        <td style="text-align: center">
+          <a
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target=".bd-example-modal-sm"
+            >Edit</a
+          >
+          <a class="btn btn-danger" (click)="onDelete(item.brand_id)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

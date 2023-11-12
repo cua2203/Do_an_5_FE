@@ -1,0 +1,52 @@
+<div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">{{ title }}</h1>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+            <li class="breadcrumb-item"><a href="/brand">Brand</a></li>
+            <li class="breadcrumb-item active">{{ title }}</li>
+          </ol>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  
+  </div>
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="mb-3 col-sm-6">
+          <label for="" class="form-label">Name</label>
+          <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId" formControlName="brand_name">
+          <div *ngIf="form.get('brand_name')?.touched">
+            <div *ngIf="form.get('brand_name')?.hasError('required') " class="alert ">Tên là trường bắt buộc.</div>
+            <div *ngIf="form.get('brand_name')?.hasError('minlength') " class="alert ">Tối thiểu 10 kí tự</div>
+           
+          </div>
+        </div>
+        <div class="mb-3 col-sm-6">
+            <label for="" class="form-label">Image</label>
+            <input type="file" name="" requiredFileType="image/png"id="image" (change)="onFileSelected($event)" class="form-control"  aria-describedby="helpId" formControlName="image">
+            <div *ngIf="form.get('image')?.touched">
+                <div *ngIf="form.get('image')?.hasError('required') " class="alert ">Ảnh là trường bắt buộc.</div>
+               
+              </div>
+          </div>
+
+          <div class="col-sm-6">
+            <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Submit</button>
+            <button class="btn btn-default m-lg-3">Back</button>
+    
+        </div>
+
+    </form>
+
+ 
+
+</div>
