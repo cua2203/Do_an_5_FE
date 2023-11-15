@@ -5,23 +5,26 @@
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
-                <label for="floatingInput">Email address</label>
+              <div class=" mb-3">
+                
+                <input type="email" class="form-control " id="floatingInput"  formControlName="email"   >
+                <label>Email</label>
                 <div *ngIf="form.get('email')?.touched">
-                  <div *ngIf="form.get('email')?.hasError('required') " class="alert alert-warning">Email là trường bắt buộc.</div>
-                  <div *ngIf="form.get('email')?.hasError('minlength') " class="alert alert-warning">Tối thiểu 10 kí tự</div>
-                  <div *ngIf="form.get('email')?.hasError('email') " class="alert alert-warning">Email không đúng định dạng</div>
+                  <div *ngIf="form.get('email')?.hasError('required') " style="color:rgb(213, 213, 8)" >Email là trường bắt buộc.</div>
+                  <div *ngIf="form.get('email')?.hasError('minlength') "style="color:rgb(213, 213, 8)"  >Tối thiểu 10 kí tự</div>
+                  <div *ngIf="form.get('email')?.hasError('email') " style="color:rgb(213, 213, 8)" >Email không đúng định dạng</div>
                 </div>
 
               </div>
-              <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"formControlName="password">
-                <label for="floatingPassword">Password</label>
+              <div class=" mb-2">
+                <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="floatingPassword" formControlName="password" >
+                
+              
                 <div *ngIf="form['controls']['password'].touched">
-                  <div *ngIf="form['controls']['password'].hasError('required') " class="alert alert-warning">Mật khẩu là trường bắt buộc.</div>
-                  <div *ngIf="form['controls']['password'].hasError('minlength') " class="alert alert-warning">Tối thiểu 10 kí tự</div>
+                  <div *ngIf="form['controls']['password'].hasError('required') "style="color:rgb(213, 213, 8)" >Mật khẩu là trường bắt buộc.</div>
+                  <div *ngIf="form['controls']['password'].hasError('minlength') " style="color:rgb(213, 213, 8)" >Tối thiểu 10 kí tự</div>
                 </div>
+                <label>Password</label>
               </div>
 
               <div class="form-check mb-3">
@@ -29,7 +32,13 @@
                 <label class="form-check-label" for="rememberPasswordCheck">
                   Remember password
                 </label>
+                <label style="margin-left:100px" class="form-check-label" for="rememberPasswordCheck" (click)="togglePassword()">
+                  Hiển thị
+                </label>
+             
               </div>
+
+              
               <div class="d-grid">
                 <button class="btn btn-primary btn-login text-uppercase fw-bold" [disabled]="form.invalid" type="submit">Sign in</button>
               </div>

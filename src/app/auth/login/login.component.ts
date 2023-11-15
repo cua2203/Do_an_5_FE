@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
+  showPassword: boolean = false;
 
   form!: FormGroup;
  
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit{
   }
   ngOnInit(): void {
     this.form = this.fb.group({
-      email:['phamcua670@gmail.com', [Validators.required,Validators.minLength(10),Validators.email]],
+      email:['user1@example.com', [Validators.required,Validators.minLength(10),Validators.email]],
       password:['password1', [Validators.required,Validators.minLength(8)]]
 
     })
@@ -29,12 +30,13 @@ export class LoginComponent implements OnInit{
           this.form.value.email,this.form.value.password
         )
         .subscribe((data: any) => {
-          console.log(data);
           this.cookie.set('token', data.token);
-          if(data.roles=="User")
-              this.router.navigate(['/user']);
-          else
+          this.cookie.set('roles', data.roles);
+          console.log(data);
+          if(data.roles=="User" || data.roles=="Admin")
               this.router.navigate(['/admin']);
+          else 
+              this.router.navigate(['/user']);
         },
         (err:any)=>{
           console.log(err);
@@ -42,6 +44,12 @@ export class LoginComponent implements OnInit{
        
         });
   }
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+
+  
 
 
 

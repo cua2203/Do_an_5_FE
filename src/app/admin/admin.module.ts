@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrandComponent } from './components/brand/brand.component';
 import { BrandAddComponent } from './components/brand/brand_add.component';
 import { BrandEditComponent } from './components/brand/brand_edit.componenet';
+import { ManageImageComponent } from '../manage-image/manage-image.component';
 
 
 
@@ -19,7 +20,8 @@ import { BrandEditComponent } from './components/brand/brand_edit.componenet';
     CategoryComponent,
     BrandComponent,
     BrandAddComponent,
-    BrandEditComponent
+    BrandEditComponent,
+    ManageImageComponent
   ],
   imports: [
     CommonModule,

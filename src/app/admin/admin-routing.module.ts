@@ -6,6 +6,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { CategoryComponent } from './components/category/category.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { BrandAddComponent } from './components/brand/brand_add.component';
+import { BrandEditComponent } from './components/brand/brand_edit.componenet';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
       { path: 'category', component: CategoryComponent },
       { path: 'brand' ,children: [
         {path:'',component: BrandComponent},
-        {path:'add',component:BrandAddComponent}
+        {path:'add',component:BrandAddComponent},
+        {path:'edit/:id',component:BrandEditComponent}
       ] }
       // Thêm các route khác cho trang admin
     ]

@@ -3,17 +3,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
 import { LoginComponent } from './auth/login/login.component';
+import { AuthGuard } from './auth.guard';
+import { ManageImageComponent } from './manage-image/manage-image.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'user', pathMatch: 'full' },
   {
     path: 'admin',
-    loadChildren: () => AdminModule
+    loadChildren: () => AdminModule,
+    canActivate: [AuthGuard]
   },
   {
     path: 'user',
     loadChildren: () => UserModule
+  },
+  {
+    path:'image',
+    component:ManageImageComponent
   },
   {
     path: 'login',

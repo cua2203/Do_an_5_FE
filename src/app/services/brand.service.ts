@@ -40,6 +40,15 @@ export class BrandService {
     };
     return this.http.post('http://localhost:3001/api/upload/single?des='+des,form,httpOptions);
 
+  }
 
+  add(brand:Brand,token:string):Observable<any>{
+    const httpOptions = {
+      headers : new HttpHeaders({
+        'Authorization' : 'Bearer '+token,
+      })
+    };
+
+    return this.http.post('http://localhost:3001/api/brand/add',brand,httpOptions)
   }
 }

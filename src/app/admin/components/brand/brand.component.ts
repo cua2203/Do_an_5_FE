@@ -24,7 +24,6 @@ export class BrandComponent implements OnInit{
     
   }
 
-
   getAll(){
     this.service.getAll(this.cookie.get('token')).subscribe(
       (data: Brand[]) => {
@@ -38,12 +37,11 @@ export class BrandComponent implements OnInit{
   };
 
   onDelete(id:number){
-    this.service.delete(id,this.cookie.get('token')).subscribe(()=>{alert("Đã xóa!"),this.getAll()},(error:any)=>{
-      console.log(error);
+    if(confirm("Delete this ?"))
+        this.service.delete(id,this.cookie.get('token')).subscribe(()=>{alert("Đã xóa!"),this.getAll()},(error:any)=>{
+          console.log(error);
     })
 
   }
-
-
 
 }

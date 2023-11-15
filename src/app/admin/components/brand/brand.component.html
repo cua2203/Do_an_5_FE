@@ -45,15 +45,15 @@
         <td style="text-align: center">{{ item.brand_name }}</td>
         <td style="text-align: center">
           <img
-            src="assets/images/Category/{{ item.image }}"
-            style="width: 120px"
+            src="{{ item.image }}"
+            style="width: 80px"
           />
         </td>
         <td style="text-align: center">
           <a
             class="btn btn-primary"
-            data-toggle="modal"
-            data-target=".bd-example-modal-sm"
+            [routerLink]="['edit',item.brand_id]"
+        
             >Edit</a
           >
           <a class="btn btn-danger" (click)="onDelete(item.brand_id)">Delete</a>
