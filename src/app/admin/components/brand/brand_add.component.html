@@ -19,6 +19,14 @@
     <!-- /.container-fluid -->
   
   </div>
+  <div class="modal fade bd-example-modal-sm" id="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg " >
+      <div class="modal-content ">
+        <app-manage-image (doubleClick)='choseImage($event)'></app-manage-image>
+       
+      </div>
+    </div>
+  </div>
 <div class="container">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="mb-3 col-sm-6">
@@ -32,7 +40,8 @@
         </div>
         <div class="mb-3 col-sm-6">
             <label for="" class="form-label">Image</label>
-            <input type="file" name="" requiredFileType="image/png"id="image" (change)="onFileSelected($event)" class="form-control"  aria-describedby="helpId" formControlName="image">
+            <input type="text" name="" requiredFileType="image/png"id="image" class="form-control"  aria-describedby="helpId" formControlName="image">
+            <a class="btn btn-primary" data-toggle="modal" data-target="#modal" >Chọn</a>
             <div *ngIf="form.get('image')?.touched">
                 <div *ngIf="form.get('image')?.hasError('required') " class="alert ">Ảnh là trường bắt buộc.</div>
                
@@ -41,7 +50,7 @@
 
           <div class="col-sm-6">
             <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Submit</button>
-            <button class="btn btn-default m-lg-3">Back</button>
+            <a class="btn btn-default m-lg-3" href="/admin/brand"> Back</a>
     
         </div>
 

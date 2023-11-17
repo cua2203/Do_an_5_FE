@@ -7,7 +7,6 @@ import { UserModule } from './user/user.module';
 import { LoginComponent } from './auth/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ManageImageComponent } from './manage-image/manage-image.component';
 
 @NgModule({
   declarations: [

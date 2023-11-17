@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { async } from '@angular/core/testing';
 
@@ -29,11 +29,11 @@ export class ManageImageComponent implements OnInit {
 
   }
 
+  
+
   onFileSelected(event : any) {
     // const file:File = event.target;
     this.FileSelected=event;
-    console.log(this.FileSelected)
-
   }
   upload(event:any){
     const file:File = event.target.files[0];
@@ -43,9 +43,17 @@ export class ManageImageComponent implements OnInit {
 
   }
 
+
   onDelete(){
     this.http.post('http://localhost:3001/api/upload/delete/' + this.FileSelected,null).subscribe(()=>{});
     this.getImage();this.FileSelected="";
+  }
+
+  @Output() doubleClick: EventEmitter<string> =   new EventEmitter()
+
+  onDoubleClick(imagePath:string) {
+    
+    this.doubleClick.emit(imagePath);
   }
 
 }

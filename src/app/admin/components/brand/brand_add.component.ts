@@ -27,30 +27,23 @@ export class BrandAddComponent implements OnInit{
           image:['', [Validators.required]]
     
         })
-        console.log(this.imagepath);
       }
 
-    onFileSelected(event : any) {
-        const file:File = event.target.files[0] || "";
-        this.file=file;
-        // this.form.value.image=file.name;
-        // console.log(this.form.value.image)
+    choseImage(event: string) {
+      this.form.get('image')?.setValue(constant.imagePath+event);
+      const modal = document.getElementById('modal');
+      const fade = document.getElementsByClassName('modal-backdrop');
+      (modal as HTMLElement).style.display='none';
+      (fade[0] as HTMLElement).style.display = 'none';
+    
+  
     }
 
-    async onSubmit() {
-        const formData = new FormData();
-        formData.append('file', this.file);
-        await this.service.upload('category',formData,this.cookie.get('token')).subscribe((data)=>{
-          console.log(data),this.image=data.filename;
-          const brand:Brand={brand_name:this.form.value.brand_name,image:this.imagepath+data.filename,brand_id:1};
-          this.service.add(brand,this.cookie.get('token')).subscribe((data)=>{console.log(data)},(error)=>{console.log(error)});
-          this.router.navigate(['/admin/brand'])
-        }
-          ,(error)=>{
-            console.log(error)
-        });
-
+    onSubmit() {
        
+      const brand:Brand={brand_name:this.form.value.brand_name,image:this.form.value.image,brand_id:1};
+      this.service.add(brand,this.cookie.get('token')).subscribe((data)=>{console.log(data)},(error)=>{console.log(error)});
+      this.router.navigate(['/admin/brand'])
 
     }
 

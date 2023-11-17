@@ -41,6 +41,27 @@ export class BrandService {
     return this.http.post('http://localhost:3001/api/upload/single?des='+des,form,httpOptions);
 
   }
+  getById(id:number,token:string):Observable<Brand>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+       
+        'Authorization': 'Bearer '+ token, // Add your access token or any other headers here
+      })
+    };
+    return this.http.get<Brand>('http://localhost:3001/api/brand/getById/'+id,httpOptions);
+
+
+  }
+  update(brand:Brand,token:string):any{
+    const httpOptions = {
+      headers: new HttpHeaders({
+       
+        'Authorization': 'Bearer '+ token, // Add your access token or any other headers here
+      })
+    };
+    return this.http.post<Brand>('http://localhost:3001/api/brand/update',brand,httpOptions);
+
+  }
 
   add(brand:Brand,token:string):Observable<any>{
     const httpOptions = {

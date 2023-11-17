@@ -4,7 +4,7 @@ import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './auth.guard';
-import { ManageImageComponent } from './manage-image/manage-image.component';
+import { ManageImageComponent } from './admin/manage-image/manage-image.component';
 
 
 const routes: Routes = [
