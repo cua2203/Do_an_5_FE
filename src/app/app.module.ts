@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminModule ,
+    AdminModule,
     UserModule,
     ReactiveFormsModule,
     HttpClientModule,

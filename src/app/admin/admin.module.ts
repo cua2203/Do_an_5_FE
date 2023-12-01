@@ -10,6 +10,12 @@ import { BrandComponent } from './components/brand/brand.component';
 import { BrandAddComponent } from './components/brand/brand_add.component';
 import { BrandEditComponent } from './components/brand/brand_edit.componenet';
 import { ManageImageComponent } from './manage-image/manage-image.component';
+import { ProductListComponent } from './components/product/product-list/product-list.component';
+import { ProductAddComponent } from './components/product/product-add/product-add.component';
+import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
+import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
+import { CKEditorModule } from 'ng2-ckeditor';
+import { VariantEditComponent } from './components/product/variant-edit/variant-edit.component';
 
 
 
@@ -22,7 +28,12 @@ import { ManageImageComponent } from './manage-image/manage-image.component';
     BrandComponent,
     BrandAddComponent,
     BrandEditComponent,
-    ManageImageComponent
+    ManageImageComponent,
+    ProductListComponent,
+    ProductAddComponent,
+    ProductEditComponent,
+    ProductDetailComponent,
+    VariantEditComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +41,7 @@ import { ManageImageComponent } from './manage-image/manage-image.component';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    CKEditorModule,
   ]
 })
 export class AdminModule { }

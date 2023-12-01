@@ -30,7 +30,7 @@
 <div class="container">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="mb-3 col-sm-6">
-          <label for="" class="form-label">Name</label>
+          <label  class="form-label">Name</label>
           <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId" formControlName="brand_name">
           <div *ngIf="form.get('brand_name')?.touched">
             <div *ngIf="form.get('brand_name')?.hasError('required') " class="alert ">Tên là trường bắt buộc.</div>
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="mb-3 col-sm-6">
-            <label for="" class="form-label">Image</label>
+            <label  class="form-label">Image</label>
             <input type="text" name="" requiredFileType="image/png"id="image" class="form-control"  aria-describedby="helpId" formControlName="image">
             <a class="btn btn-primary" data-toggle="modal" data-target="#modal" >Chọn</a>
             <div *ngIf="form.get('image')?.touched">

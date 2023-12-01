@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit{
         .subscribe((data: any) => {
           this.cookie.set('token', data.token);
           this.cookie.set('roles', data.roles);
+          this.cookie.set('user_id', data.user_id);
           console.log(data);
           if(data.roles=="User" || data.roles=="Admin")
               this.router.navigate(['/admin']);

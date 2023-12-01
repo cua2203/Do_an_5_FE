@@ -36,7 +36,6 @@ export class BrandAddComponent implements OnInit{
       (modal as HTMLElement).style.display='none';
       (fade[0] as HTMLElement).style.display = 'none';
     
-  
     }
 
     onSubmit() {
